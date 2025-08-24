@@ -1,0 +1,39 @@
+{
+    "name": "User",
+    "age": 30,
+    "email": "user@example.com",
+    "entries": [
+        {
+            "name": "test1",
+            "key" : 1,
+            "data": [
+                {
+                    "value": 2,
+                    "unit": "Picogram per Milliliter",
+                    "date": "2023-01-01"
+                },
+                {
+                    "value": 150,
+                    "unit": "Picogram per Milliliter",
+                    "date": "2023-02-01"
+                }
+            ]
+        },
+        {
+            "name": "test2",
+            "key" : 2,
+            "data": [
+                {
+                    "value": 200,
+                    "unit": "Meter",
+                    "date": "2023-01-01"
+                },
+                {
+                    "value": 250,
+                    "unit": "Centimeter",
+                    "date": "2023-02-01"
+                }
+            ]
+        }
+    ]
+}
