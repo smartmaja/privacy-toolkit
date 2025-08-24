@@ -1,8 +1,12 @@
+import logo from '../assets/icon.svg';
+
+
 function HeaderBar() {
     return (
-        <div>
-            <h1>Privacy Toolkit</h1>
-        </div>
+        <>
+            <img src={logo} alt=" " className='header-logo'/>
+            <p className="header-title">Privacy Toolkit</p>
+        </>
     );
 }
 

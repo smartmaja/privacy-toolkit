@@ -198,9 +198,12 @@ function EntrySelectorPanel({ localUserData, selectedEntryID, setSelectedEntryID
     }
 
     return (
+        <>
+        <p></p>
         <ul className="list-group">
             {getEntries()}
         </ul>
+        </>
     );
 }
 

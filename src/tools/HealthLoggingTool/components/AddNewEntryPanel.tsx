@@ -89,7 +89,7 @@ function AddNewEntryPanel({ localUserData, setLocalUserData }: AddNewEntryPanelP
             <form onSubmit={handleAddEntry} id="entry-form">
                 <div>
                     <label htmlFor="entry-title">Add new entry:</label>
-                    <input type="text" id="entry-title" name="entry-title" required />
+                    <input type="text" id="entry-title" name="entry-title" autoComplete="off" required />
                 </div>
                 <button type="submit" className="btn btn-secondary" style={{ marginTop: "8px" }}>Add Entry</button>
             </form>
