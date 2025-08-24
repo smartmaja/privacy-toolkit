@@ -16,7 +16,7 @@ const HealthLoggingTool = () => {
     return (
         <div>
             <div className="tool-container">
-                <div className="sidepanel sidepanel-left">
+                <div className="panel sidepanel sidepanel-left">
                     <SidePanelLeft
                         localUserData={localUserData}
                         setLocalUserDataState={setLocalUserDataState}
@@ -24,7 +24,7 @@ const HealthLoggingTool = () => {
                         setSelectedEntryID={setSelectedEntryID}
                     />
                 </div>
-                <div className="tool-panel">
+                <div className="panel tool-panel">
                     <CenterPanel 
                         localUserData={localUserData}
                         setLocalUserDataState={setLocalUserDataState}

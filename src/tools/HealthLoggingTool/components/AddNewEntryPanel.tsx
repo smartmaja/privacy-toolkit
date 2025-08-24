@@ -62,7 +62,7 @@ function AddNewEntryPanel({ localUserData, setLocalUserData }: AddNewEntryPanelP
 
             // Define the error message
             const errorMessage = document.createElement("p");
-            errorMessage.textContent = "Entry name is already taken.";
+            errorMessage.textContent = "Entry name is taken.";
 
             // Get the form element
             const form = document.getElementById("entry-form");
@@ -79,6 +79,9 @@ function AddNewEntryPanel({ localUserData, setLocalUserData }: AddNewEntryPanelP
 
             console.log(form);
         }
+
+        // Clear the input field
+        (document.getElementById("entry-title") as HTMLInputElement).value = "";
     };
 
     const newEntryForm = () => {
@@ -88,7 +91,7 @@ function AddNewEntryPanel({ localUserData, setLocalUserData }: AddNewEntryPanelP
                     <label htmlFor="entry-title">Add new entry:</label>
                     <input type="text" id="entry-title" name="entry-title" required />
                 </div>
-                <button type="submit">Add Entry</button>
+                <button type="submit" className="btn btn-secondary" style={{ marginTop: "8px" }}>Add Entry</button>
             </form>
         );
     };

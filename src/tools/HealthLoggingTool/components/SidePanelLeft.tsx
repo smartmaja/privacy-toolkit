@@ -1,5 +1,6 @@
 import EntrySelectorPanel  from "./EntrySelectorPanel";
 import AddNewEntryPanel  from "./AddNewEntryPanel";
+import LoadUserDataPanel  from "./LoadUserDataPanel";
 
 type EntryData = {
     value: number;
@@ -37,15 +38,25 @@ function SidePanelLeft({
 
     return (
         <>
-            <EntrySelectorPanel
-                localUserData={localUserData}
-                selectedEntryID={selectedEntryID}
-                setSelectedEntryID={setSelectedEntryID}
-            />
-            <AddNewEntryPanel
-                localUserData={localUserData}
-                setLocalUserData={setLocalUserDataState}
-            />
+            <div className="tool-panel">
+                <LoadUserDataPanel
+                    localUserData={localUserData}
+                    setLocalUserData={setLocalUserDataState}
+                />
+            </div>
+            <div className="tool-panel">
+                <EntrySelectorPanel
+                    localUserData={localUserData}
+                    selectedEntryID={selectedEntryID}
+                    setSelectedEntryID={setSelectedEntryID}
+                />
+            </div>
+            <div className="tool-panel">
+                <AddNewEntryPanel
+                    localUserData={localUserData}
+                    setLocalUserData={setLocalUserDataState}
+                />
+            </div>
         </>
     );
 }
