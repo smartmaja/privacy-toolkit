@@ -4,6 +4,9 @@ import Units from '../../scripts/Units';
 // Import icon from lucide
 import { FilePlus2 } from 'lucide-react';
 
+import NewDataPopup from "./NewDataPopup";
+import { useState as reactUseState } from 'react';
+
 
 type EntryData = {
     value: number;
@@ -28,13 +31,15 @@ type SelectedEntryID = string | null;
 
 function SidePanelRight({
     localUserData,
-    selectedEntryID,
+    selectedEntryID
 }: {
     localUserData: LocalUserData;
     selectedEntryID: SelectedEntryID;
 }) {
     // Define the standard units
     const STANDARD_UNITS = Units.GetStandardUnits();
+
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
 
     // Find the data points of the entire with the selected entry key
     // Define data object
@@ -116,7 +121,12 @@ function SidePanelRight({
         <>
         <div className="add-new-datapoint-panel">
             <p className="panel-title add-new-datapoint-panel-title">Add New Data Point</p>
-            <button onClick={() => {}} className="add-new-datapoint-button btn btn-primary"><FilePlus2 /></button>
+            <button
+                onClick={() => setIsPopupVisible(true)}
+                className="add-new-datapoint-button btn btn-primary"
+            >
+                <FilePlus2 />
+            </button>
         </div>
         <div>
             <p className="panel-title">Data Points</p>
@@ -127,8 +137,14 @@ function SidePanelRight({
                 </div>
             ))}
         </div>
+            <NewDataPopup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
         </>
     );
 }
 
 export default SidePanelRight;
+
+// Use React's useState implementation
+function useState<T>(initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
+    return reactUseState(initialValue);
+}

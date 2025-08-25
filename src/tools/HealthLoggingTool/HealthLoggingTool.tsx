@@ -13,7 +13,7 @@ import SidePanelRight from "./components/SidePanelRight/SidePanelRight";
 const HealthLoggingTool = () => {
     const [localUserData, setLocalUserDataState] = useState(getLocalUserData());
     const [selectedEntryID, setSelectedEntryID] = useState<string | null>(null);
-
+    
     return (
         <div>
             <div className="tool-container">

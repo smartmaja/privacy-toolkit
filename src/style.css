@@ -66,8 +66,8 @@ body {
 }
 
 .list-group-item.active {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    border: 1px solid var(--bg4);
 }
 
 .list-group-item {
@@ -197,6 +197,21 @@ body {
     color: white;
 }
 
+.btn-exit {
+    background-color: var(--bg2);
+    border: 1px solid var(--secondary-color);
+    color: black;
+}
+
+.btn-exit:hover {
+    background-color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+}
+
+.btn-exit:hover > * {
+    color: white;
+}
+
 .displayed-datapoint {
     padding-top: 16px;
     padding-bottom: 8px;
@@ -211,14 +226,15 @@ body {
 
 .new-datapoint-popup {
     position: fixed;
-    top: 200px;
-    right: 100px;
-    transform: translate(-50%, -50%);
-    background-color: white;
+    top: 100px;
+    right: 260px;
+    width: max-content;
+    background-color: var(--bg1);
     border: 1px solid var(--bg4);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 8px;
 }
 
 .add-new-datapoint-panel {
@@ -250,3 +266,23 @@ body {
     color: white;
 }
 
+.new-datapoint-popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.05); 
+    z-index: 998;
+}
+
+.new-data-form {
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.popup-title-left {
+    margin-top: 6px;
+    margin-left: 18px;
+}
