@@ -159,8 +159,3 @@ function SidePanelRight({
 }
 
 export default SidePanelRight;
-
-// Use React's useState implementation
-function useState<T>(initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
-    return reactUseState(initialValue);
-}
