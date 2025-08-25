@@ -1,5 +1,3 @@
-import RippleButton from '../../scripts/RippleButton';
-
 // Define types for entry data
 type EntryData = {
     value: number;

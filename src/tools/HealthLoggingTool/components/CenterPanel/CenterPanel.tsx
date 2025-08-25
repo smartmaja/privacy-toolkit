@@ -30,7 +30,6 @@ type SetSelectedEntryID = (id: SelectedEntryID) => void;
 
 
 const CenterPanel = ({
-    localUserData,
     selectedEntryID,
 }: SidePanelProps) => {
     return (

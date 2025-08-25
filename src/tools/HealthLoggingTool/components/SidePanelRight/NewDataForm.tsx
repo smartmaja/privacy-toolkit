@@ -7,8 +7,8 @@ function NewDataForm() {
             <form action="">
                 <input type="text" placeholder="value.." />
                 <select>
-                    {Object.entries(Units.GetStandardUnits()).map(([category, subCategories]) =>
-                        Object.entries(subCategories).map(([subCategory, unit]) => (
+                    {Object.entries(Units.GetStandardUnits()).map(([_, subCategories]) =>
+                        Object.entries(subCategories).map(([_, unit]) => (
                             <option key={unit.name} value={unit.name}>
                                 {unit.name}
                             </option>
