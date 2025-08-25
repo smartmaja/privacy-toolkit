@@ -41,6 +41,16 @@ function SidePanelRight({
 
     const [isPopupVisible, setIsPopupVisible] = useState(false);
 
+    const AddNewDataField = <div className="add-new-datapoint-panel">
+        <p className="panel-title add-new-datapoint-panel-title">Add New Data Point</p>
+        <button
+            onClick={() => setIsPopupVisible(true)}
+            className="add-new-datapoint-button btn btn-primary"
+        >
+            <FilePlus2 />
+        </button>
+    </div>
+
     // Find the data points of the entire with the selected entry key
     // Define data object
     let data;
@@ -62,11 +72,27 @@ function SidePanelRight({
         return <div>Error loading data</div>;
     }
 
-    // Notify the user if no data is found
-    if (!data || data.length === 0) {
-        return <div className="displayed-datapoint-no-data">
-                <p>No data available</p>
-            </div>;
+    // If the data field doesnt exist, display a message
+    if (!data) {
+        return (
+            <>
+                <div className="displayed-datapoint-no-data">
+                    <p>No data available</p>
+                </div>
+            </>
+        );
+    }
+
+    // If no data is found, display a message
+    if (data.length === 0) {
+        return (
+            <>
+                {AddNewDataField}
+                <div className="displayed-datapoint-no-data">
+                    <p>No data available</p>
+                </div>
+            </>
+        );
     }
 
     // Define a list containing the data points as tuples
@@ -119,15 +145,7 @@ function SidePanelRight({
     // Render the data points
     return (
         <>
-        <div className="add-new-datapoint-panel">
-            <p className="panel-title add-new-datapoint-panel-title">Add New Data Point</p>
-            <button
-                onClick={() => setIsPopupVisible(true)}
-                className="add-new-datapoint-button btn btn-primary"
-            >
-                <FilePlus2 />
-            </button>
-        </div>
+        {AddNewDataField}
         <div>
             <p className="panel-title">Data Points</p>
             {datapoints.map((item, index) => (
