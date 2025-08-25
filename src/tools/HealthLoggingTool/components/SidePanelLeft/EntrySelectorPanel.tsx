@@ -5,7 +5,7 @@
 */
 
 // Import the Standard Units from the Units script
-import Units from './Units';
+import Units from '../../scripts/Units';
 
 // Example for EntrySelectorPanel.tsx
 // Define types for entry data

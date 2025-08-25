@@ -27,17 +27,15 @@ type SidePanelProps = {
 type SelectedEntryID = string | null;
 type SetSelectedEntryID = (id: SelectedEntryID) => void;
 
+
+
 const CenterPanel = ({
     localUserData,
     selectedEntryID,
 }: SidePanelProps) => {
-    let selectedData = localUserData.entries.find(entry => entry.key === Number(selectedEntryID));
-    console.log("CenterPanel render", { selectedEntryID, selectedData });
-
     return (
         <div>
             <p>selectedEntryID: {selectedEntryID}</p>
-            <pre>{JSON.stringify(selectedData, null, 2)}</pre>
         </div>
     );
 }

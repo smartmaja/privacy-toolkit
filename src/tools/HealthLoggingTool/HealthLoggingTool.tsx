@@ -1,11 +1,12 @@
 // Import the locally stored user data as a JSON object
-import { getLocalUserData } from './components/LocalUserData';
+import { getLocalUserData } from './scripts/LocalUserData';
 
 // Import React hooks
 import { useState } from 'react';
 
-import CenterPanel from "./components/CenterPanel";
-import SidePanelLeft from "./components/SidePanelLeft";
+import CenterPanel from "./components/CenterPanel/CenterPanel";
+import SidePanelLeft from "./components/SidePanelLeft/SidePanelLeft";
+import SidePanelRight from "./components/SidePanelRight/SidePanelRight";
 
 
 
@@ -24,12 +25,18 @@ const HealthLoggingTool = () => {
                         setSelectedEntryID={setSelectedEntryID}
                     />
                 </div>
-                <div className="panel tool-panel">
+                <div className="panel centerpanel">
                     <CenterPanel 
                         localUserData={localUserData}
                         setLocalUserDataState={setLocalUserDataState}
                         selectedEntryID={selectedEntryID}
                         setSelectedEntryID={setSelectedEntryID}/>
+                </div>
+                <div className="panel sidepanel sidepanel-right">
+                    <SidePanelRight
+                        localUserData={localUserData}
+                        selectedEntryID={selectedEntryID}
+                    />
                 </div>
             </div>
         </div>
