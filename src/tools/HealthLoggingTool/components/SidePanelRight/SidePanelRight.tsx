@@ -5,7 +5,6 @@ import Units from '../../scripts/Units';
 import { FilePlus2 } from 'lucide-react';
 
 import NewDataPopup from "./NewDataPopup";
-import { useState as reactUseState } from 'react';
 
 
 type EntryData = {
