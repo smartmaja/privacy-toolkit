@@ -6,9 +6,11 @@ import { X } from 'lucide-react';
 type NewDataPopupProps = {
     isVisible: boolean;
     setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    setLocalUserDataState: (data: any) => void;
+    selectedEntryID: string | null;
 };
 
-function NewDataPopup({ isVisible, setIsVisible }: NewDataPopupProps) {
+function NewDataPopup({ isVisible, setIsVisible, setLocalUserDataState, selectedEntryID }: NewDataPopupProps) {
     if (!isVisible) return null;
     return (
         <div className="new-datapoint-popup-container"
@@ -24,7 +26,7 @@ function NewDataPopup({ isVisible, setIsVisible }: NewDataPopupProps) {
                         <X />
                     </button>
                 </div>
-                <NewDataForm />
+                <NewDataForm setIsVisible={setIsVisible} setLocalUserDataState={setLocalUserDataState} selectedEntryID={selectedEntryID} />
             </div>
         </div>
     );

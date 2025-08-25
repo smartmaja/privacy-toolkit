@@ -76,8 +76,6 @@ function AddNewEntryPanel({ localUserData, setLocalUserData }: AddNewEntryPanelP
                 // Render the error message above the "add entry" button
                 form.insertBefore(errorMessage, form.lastChild);
             }
-
-            console.log(form);
         }
 
         // Clear the input field

@@ -29,17 +29,22 @@ type LocalUserData = {
 
 type SelectedEntryID = string | null;
 
-function SidePanelRight({
-    localUserData,
-    selectedEntryID
-}: {
+type SidePanelRightProps = {
     localUserData: LocalUserData;
     selectedEntryID: SelectedEntryID;
-}) {
+    isPopupVisible: boolean;
+    setIsPopupVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+function SidePanelRight({
+    localUserData,
+    selectedEntryID,
+    isPopupVisible,
+    setIsPopupVisible,
+    setLocalUserDataState
+}: SidePanelRightProps & { setLocalUserDataState: (data: any) => void }) {
     // Define the standard units
     const STANDARD_UNITS = Units.GetStandardUnits();
-
-    const [isPopupVisible, setIsPopupVisible] = useState(false);
 
     const AddNewDataField = <div className="add-new-datapoint-panel">
         <p className="panel-title add-new-datapoint-panel-title">Add New Data Point</p>
@@ -60,9 +65,6 @@ function SidePanelRight({
 
         // Find the entry with the matching key
         data = localUserData.entries.find(entry => entry.key === Number(selectedEntryID))?.data;
-
-        // Log to console
-        console.log("SidePanelRight render", { selectedEntryID, data });
 
     }
     catch (error) {
@@ -91,6 +93,7 @@ function SidePanelRight({
                 <div className="displayed-datapoint-no-data">
                     <p>No data available</p>
                 </div>
+                <NewDataPopup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} setLocalUserDataState={setLocalUserDataState} selectedEntryID={selectedEntryID} />
             </>
         );
     }
@@ -107,16 +110,13 @@ function SidePanelRight({
 
         // Search all categories for the unit
         for (const category in STANDARD_UNITS) {
-            console.log(`Checking category ${category} for unit ${unit}`);
             for (const subCategory in STANDARD_UNITS[category]) {
                 if (STANDARD_UNITS[category][subCategory].name === unit) {
-                    console.log(`Found unit ${unit} in category ${category}`);
                     abbr = STANDARD_UNITS[category][subCategory].abbr;
                 }
             }
         }
 
-        console.log(`Converted unit ${unit} to abbreviation ${abbr}`);
         return [item[0], item[1], abbr ? abbr : unit];
     });
 
@@ -140,8 +140,6 @@ function SidePanelRight({
         return [formattedDate, item[1], item[2]];
     });
 
-    console.log("Rendering SidePanelRight with datapoints:", datapoints);
-
     // Render the data points
     return (
         <>
@@ -155,7 +153,7 @@ function SidePanelRight({
                 </div>
             ))}
         </div>
-            <NewDataPopup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
+            <NewDataPopup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} setLocalUserDataState={setLocalUserDataState} selectedEntryID={selectedEntryID} />
         </>
     );
 }

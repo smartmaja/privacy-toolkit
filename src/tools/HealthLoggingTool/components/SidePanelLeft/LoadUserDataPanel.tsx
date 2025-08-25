@@ -66,8 +66,6 @@ function LoadUserDataPanel({ localUserData, setLocalUserData }: LoadUserDataPane
                             // Parse the string to a LocalUserData object
                             const parsedData = JSON.parse(contents);
 
-                            console.log("Parsed user data:", parsedData);
-
                             // Set the local user data
                             setLocalUserData(parsedData);
                         }

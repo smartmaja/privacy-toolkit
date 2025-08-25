@@ -10,10 +10,12 @@ import SidePanelRight from "./components/SidePanelRight/SidePanelRight";
 
 
 
+
 const HealthLoggingTool = () => {
     const [localUserData, setLocalUserDataState] = useState(getLocalUserData());
     const [selectedEntryID, setSelectedEntryID] = useState<string | null>(null);
-    
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
     return (
         <div>
             <div className="tool-container">
@@ -36,6 +38,9 @@ const HealthLoggingTool = () => {
                     <SidePanelRight
                         localUserData={localUserData}
                         selectedEntryID={selectedEntryID}
+                        isPopupVisible={isPopupVisible}
+                        setIsPopupVisible={setIsPopupVisible}
+                        setLocalUserDataState={setLocalUserDataState}
                     />
                 </div>
             </div>

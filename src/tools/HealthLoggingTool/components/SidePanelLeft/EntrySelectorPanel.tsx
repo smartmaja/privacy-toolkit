@@ -100,7 +100,6 @@ function EntrySelectorPanel({ localUserData, selectedEntryID, setSelectedEntryID
 
         // Set the previously selected entry ID to the current entry ID
         setSelectedEntryID(String(entry.key));
-        console.log("Entry selected:", entry.name);
 
         // Log the selected entry
         console.log("Entry selected:", entry.name);
